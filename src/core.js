@@ -37,9 +37,11 @@ export function next(state) {
   }
 }
 
-export function vote(state, entry) {
-  return state.updateIn(
-    ['vote', 'tally', entry], // keyPath
-    (tally = 0) => tally + 1 // upadter
+export function vote(voteState, entry) {
+  return voteState.updateIn(
+    ['tally', entry], // keyPath
+    (entryTally = 0) => entryTally + 1 // upadter
   )
 }
+
+export const INITIAL_STATE = Map()
